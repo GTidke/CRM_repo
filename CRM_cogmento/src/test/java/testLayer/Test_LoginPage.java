@@ -8,8 +8,7 @@ import baseLayer.CRM_baseclass;
 import pageLayer.CRM_loginPage;
 
 public class Test_LoginPage extends CRM_baseclass{
-	CRM_loginPage log;
-	
+	CRM_loginPage log;	
 	//CRM_baseclass baseclass=new CRM_baseclass();
 	@BeforeClass
 	public void openURL() {
