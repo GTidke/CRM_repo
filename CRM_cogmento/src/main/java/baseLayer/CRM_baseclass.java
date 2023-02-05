@@ -15,7 +15,7 @@ public class CRM_baseclass {
 	public static WebDriver driver;
 
 	public CRM_baseclass() {
-		Properties prop = new Properties();
+		prop = new Properties();
 		try {
 			FileInputStream f = new FileInputStream(
 					System.getProperty("user.dir") + "\\src\\main\\java\\configLayer\\config.properties");
