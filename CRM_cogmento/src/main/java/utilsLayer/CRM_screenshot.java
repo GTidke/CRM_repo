@@ -12,18 +12,16 @@ import baseLayer.CRM_baseclass;
 public class CRM_screenshot extends CRM_baseclass {
 	File f;
 
-	public CRM_screenshot() {
+	public CRM_screenshot(String path) {
 		TakesScreenshot ss = (TakesScreenshot) driver;
 		File f = ss.getScreenshotAs(OutputType.FILE);
-	}
 
-	public void PassScreenshot() {
-		File dest = new File(System.getProperty("user.dir") + "passScreenShot/name.png");
+		File dest = new File(System.getProperty("user.dir")+path);
 		try {
 			FileUtils.copyFile(f, dest);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
 
+	}
 }

@@ -8,6 +8,7 @@
           <include name="openURL"/>
           <include name="login_cogmento"/>
           <include name="tearDown"/>
+          <include name="screenShot"/>
         </methods>
       </class> <!-- testLayer.Test_LoginPage -->
     </classes>
