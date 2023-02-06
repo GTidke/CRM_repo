@@ -1,5 +1,6 @@
 package testLayer;
 
+import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -27,8 +28,13 @@ public class Test_LoginPage extends CRM_baseclass{
 	log.submitLogin();
 	}
 	
+	@Test(dependsOnMethods={"login_cogmento"})
+	public void CaptureTitle() {
+		Assert.assertEquals("Cogmento CRM", driver.getTitle());
+	}
+	
 	@AfterMethod
-	public void screenShot(ITestResult result) {
+	public void screenshot(ITestResult result) {
 		if(ITestResult.FAILURE==result.getStatus()) {
 		ss=new CRM_screenshot("/failScreenshot/"+result.getName()+".png");		
 	}
@@ -36,12 +42,11 @@ public class Test_LoginPage extends CRM_baseclass{
 		ss=new CRM_screenshot("/passScreenShot/"+result.getName()+".png");	
 		}
 		System.out.println("Screenshot Captured");
-		
+		//driver.quit();
+	}
+@AfterClass
+	public void teardown() {
+		//driver.close();
 	}
 	
-	@AfterClass
-	public void tearDown() {
-		driver.close();
-	}
-
 }
